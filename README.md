@@ -22,14 +22,14 @@ A mobile social application built with React Native and Expo Router.
 ## 📱 Installation
 
 \`\`\`bash
-# Clone repository
+Clone repository
 git clone git@github.com:Vixs101/Framez.git
 cd Framez
 
-# Install dependencies
+Install dependencies
 npm install
 
-# Start development server
+Start development server
 npx expo start
 \`\`\`
 
