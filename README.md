@@ -1,50 +1,109 @@
-# Welcome to your Expo app 👋
+# Framez - Social Media App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A mobile social application built with React Native and Expo Router.
 
-## Get started
+## 🚀 Features
 
-1. Install dependencies
+- User authentication (signup, login, logout)
+- Create posts with images and captions
+- Real-time feed of all posts
+- User profile with personal posts
+- Light/Dark theme support
+- Responsive design
 
-   ```bash
-   npm install
-   ```
+## 🛠️ Tech Stack
 
-2. Start the app
+- **Frontend:** React Native, Expo Router, NativeWind (Tailwind CSS)
+- **Backend:** Supabase (Auth, Database, Storage)
+- **State Management:** React Context API
+- **Image Handling:** Expo Image Picker
+- **Icons:** Lucide React Native
 
-   ```bash
-   npx expo start
-   ```
+## 📱 Installation
 
-In the output, you'll find options to open the app in a
+\`\`\`bash
+# Clone repository
+git clone git@github.com:Vixs101/Framez.git
+cd Framez
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+# Install dependencies
+npm install
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+# Start development server
+npx expo start
+\`\`\`
 
-## Get a fresh project
+## 🔧 Configuration
 
-When you're ready, run:
+1. Create a Supabase project at https://supabase.com
+2. Copy `.env.example` to `.env`
+3. Add your Supabase credentials:
 
+\`\`\`
+EXPO_PUBLIC_SUPABASE_URL=your_supabase_url
+EXPO_PUBLIC_SUPABASE_ANON_KEY=your_anon_key
+\`\`\`
+
+
+## 🎥 Demo Video
+
+[(https://drive.google.com/drive/folders/1WiPFgf6VGDBCterd-QRfzkJBuv8qePZ8?usp=sharing)]
+
+## 🌐 Live Demo
+
+Try it on Appetize.io: [(https://appetize.io/app/b_f4ejajrzcdpoamyeyokf4fqpfa)]
+
+## 👤 Author
+
+Elijah Victor - [@Vixs101]
+
+## 📄 License
+
+MIT License
+\`\`\`
+
+---
+
+## 📊 Deployment Checklist
+
+Before final submission:
+
+- [ ] All features work correctly
+- [ ] No console errors
+- [ ] Images upload successfully
+- [ ] Authentication persists
+- [ ] Dark mode works
+- [ ] APK/IPA built successfully
+- [ ] Appetize.io link works
+- [ ] Demo video recorded (2-3 min)
+- [ ] GitHub repo is public
+- [ ] README.md is complete
+- [ ] Clean commit history
+- [ ] All screenshots added
+
+---
+
+## 🐛 Common Build Issues
+
+### Issue 1: Build fails with "Invalid identifier"
+**Fix:** Update bundle identifier in app.json to match your Expo account
+
+### Issue 2: "Environment variables not found"
+**Fix:** EAS builds don't use .env files. Add secrets:
 ```bash
-npm run reset-project
+eas secret:create --scope project --name EXPO_PUBLIC_SUPABASE_URL --value your_value
+eas secret:create --scope project --name EXPO_PUBLIC_SUPABASE_ANON_KEY --value your_value
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+### Issue 3: APK too large (>200MB)
+**Fix:** Enable Hermes in app.json:
+```json
+"android": {
+  "jsEngine": "hermes"
+}
+```
 
-## Learn more
+### Issue 4: Appetize.io session expires quickly
+**Fix:** This is normal for free tier. Share the link, users get 2 min sessions.
 
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+---

@@ -5,35 +5,43 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "framez",
     "userInterfaceStyle": "automatic",
     "splash": {
       "image": "./assets/images/splash-icon.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#9333ea"
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.yourname.framez"
+      "bundleIdentifier": "com.yourcompany.framez"
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/android-icon-background.png",
-        "backgroundColor": "#ffffff"
+        "foregroundImage": "./assets/images/icon.png",
+        "backgroundColor": "#9333ea"
       },
-      "package": "com.yourname.framez"
-    },
-    "web": {
-      "bundler": "metro",
-      "output": "static",
-      "favicon": "./assets/images/favicon.png"
+      "package": "com.vixs.framez",
+      "permissions": [
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.RECORD_AUDIO"
+      ]
     },
     "plugins": [
+      "expo-router",
       "expo-font",
-      "expo-router"
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Allow Framez to access your photos to share posts."
+        }
+      ]
     ],
-    "experiments": {
-      "typedRoutes": true
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "5a9c2603-23de-4fad-9423-7bb105f6b639"
+      }
     }
   }
 }

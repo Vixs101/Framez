@@ -1,3 +1,5 @@
+// import { Heart, MessageCircle, Share2 } from "lucide-react-native";
+import { Heart, MessageCircle, Share2 } from "lucide-react-native";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import { useTheme } from "../../context/ThemeContext";
 
@@ -85,15 +87,27 @@ export default function PostCard({ post }) {
       )}
 
       {/* Action Buttons */}
-      <View className="flex-row items-center px-4 py-4 space-x-4 gap-4 border-t-[1px] border-[#a855f7]">
-        <TouchableOpacity className="flex-row items-center">
-          <Text className="text-2xl mr-1">❤️</Text>
+      <View className="flex-row items-center px-4 pb-4 gap-4">
+        <TouchableOpacity className="flex-row items-center gap-1">
+          <Heart
+            size={24}
+            color={isDark ? "#9ca3af" : "#6b7280"}
+            strokeWidth={2}
+          />
         </TouchableOpacity>
-        <TouchableOpacity className="flex-row items-center">
-          <Text className="text-2xl mr-1">💬</Text>
+        <TouchableOpacity className="flex-row items-center gap-1">
+          <MessageCircle
+            size={24}
+            color={isDark ? "#9ca3af" : "#6b7280"}
+            strokeWidth={2}
+          />
         </TouchableOpacity>
-        <TouchableOpacity className="flex-row items-center">
-          <Text className="text-2xl mr-1">📤</Text>
+        <TouchableOpacity className="flex-row items-center gap-1">
+          <Share2
+            size={24}
+            color={isDark ? "#9ca3af" : "#6b7280"}
+            strokeWidth={2}
+          />
         </TouchableOpacity>
       </View>
     </View>

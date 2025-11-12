@@ -3,6 +3,7 @@ import { useRouter } from "expo-router";
 import { useState } from "react";
 import {
     Alert,
+    Dimensions,
     Image,
     KeyboardAvoidingView,
     Platform,
@@ -17,6 +18,9 @@ import { useAuth } from "../../src/context/AuthContext";
 import { useTheme } from "../../src/context/ThemeContext";
 import { supabase } from "../../src/lib/supabase";
 
+const { width } = Dimensions.get('window');
+const imageContainerHeight = (width - 32) * (3 / 4);
+
 export default function CreateScreen() {
   const router = useRouter();
   const { isDark } = useTheme();
@@ -25,7 +29,6 @@ export default function CreateScreen() {
   const [selectedImage, setSelectedImage] = useState(null);
   const [uploading, setUploading] = useState(false);
 
- 
   const pickImage = async () => {
     try {
       // get permission
@@ -143,13 +146,19 @@ export default function CreateScreen() {
       behavior={Platform.OS === "ios" ? "padding" : "height"}
       className={`flex-1 ${isDark ? "bg-gray-900" : "bg-white"}`}
       contentContainerStyle={{
-          backgroundColor: isDark ? '#111827' : '#fff',
-         
-        }}
+        backgroundColor: isDark ? "#111827" : "#fff",
+      }}
     >
       <ScrollView
         className={`flex-1`}
-        contentContainerStyle={{ paddingTop: 16, paddingBottom: 0, paddingLeft: 16, paddingRight:16 , backgroundColor: isDark ? '#111827' : '#fff',  flexGrow: 1, }}
+        contentContainerStyle={{
+          paddingTop: 16,
+          paddingBottom: 0,
+          paddingLeft: 16,
+          paddingRight: 16,
+          backgroundColor: isDark ? "#111827" : "#fff",
+          flexGrow: 1,
+        }}
         keyboardShouldPersistTaps="handled"
       >
         <View className={`flex-1`}>
@@ -170,17 +179,26 @@ export default function CreateScreen() {
           {/* Image Picker */}
           <TouchableOpacity
             onPress={pickImage}
-            className={`rounded-xl mb-4 w-full -z-100 overflow-hidden border-2 border-dashed ${
-              isDark
-                ? "border-gray-700"
-                : "border-gray-300 bg-gray-50"
-            }`}
-            style={{ aspectRatio: 4 / 3 }}
+            activeOpacity={0.8}
+            style={{
+              width: "100%",
+              height: imageContainerHeight,
+              borderRadius: 12,
+              borderWidth: 2,
+              borderStyle: "dashed",
+              borderColor: isDark ? "#374151" : "#d1d5db",
+              backgroundColor: isDark ? "#1f2937" : "#f9fafb",
+              overflow: "hidden",
+              marginBottom: 16,
+            }}
           >
             {selectedImage ? (
               <Image
                 source={{ uri: selectedImage.uri }}
-                className="w-full h-full z-50"
+                style={{
+                  width: "100%",
+                  height: "100%",
+                }}
                 resizeMode="cover"
               />
             ) : (
@@ -220,34 +238,31 @@ export default function CreateScreen() {
           )}
 
           {/* Caption Input */}
-          <View className="mb-4">
-            <Text
-              className={`text-sm font-medium mb-2 ${
-                isDark ? "text-gray-300" : "text-gray-700"
-              }`}
-            >
+          <View className="mb-6">
+            <Text className={`text-sm font-medium mb-2 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
               Caption
             </Text>
             <TextInput
               value={caption}
               onChangeText={setCaption}
               placeholder="Write a caption..."
-              placeholderTextColor={isDark ? "#9ca3af" : "#6b7280"}
+              placeholderTextColor={isDark ? '#9ca3af' : '#6b7280'}
               multiline
               numberOfLines={4}
               textAlignVertical="top"
-              className={`border-2 rounded-xl p-4 text-base ${
-                isDark
-                  ? "bg-gray-800 border-gray-700 text-white"
-                  : "bg-white border-gray-300 text-gray-900"
-              }`}
+              style={{
+                borderWidth: 2,
+                borderRadius: 12,
+                padding: 16,
+                fontSize: 16,
+                minHeight: 120,
+                backgroundColor: isDark ? '#1f2937' : '#ffffff',
+                borderColor: isDark ? '#374151' : '#d1d5db',
+                color: isDark ? '#ffffff' : '#111827',
+              }}
               maxLength={500}
             />
-            <Text
-              className={`text-xs mt-1 text-right ${
-                isDark ? "text-gray-500" : "text-gray-400"
-              }`}
-            >
+            <Text className={`text-xs mt-1 text-right ${isDark ? 'text-gray-500' : 'text-gray-400'}`}>
               {caption.length}/500
             </Text>
           </View>
