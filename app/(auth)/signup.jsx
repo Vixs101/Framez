@@ -11,7 +11,7 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Button from '../../src/components/common/Button';
 import Input from '../../src/components/common/Input';
-import ThemeToggle from '../../src/components/common/ThemeToggle';
+
 import { useAuth } from '../../src/context/AuthContext';
 import { useTheme } from '../../src/context/ThemeContext';
 
@@ -103,7 +103,7 @@ export default function SignupScreen() {
 
             {/* Theme Toggle */}
             <View className="mb-8">
-              <ThemeToggle />
+              
             </View>
 
             {/* Form */}

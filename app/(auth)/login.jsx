@@ -12,7 +12,7 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Button from '../../src/components/common/Button';
 import Input from '../../src/components/common/Input';
-import ThemeToggle from '../../src/components/common/ThemeToggle';
+
 import { useAuth } from '../../src/context/AuthContext';
 import { useTheme } from '../../src/context/ThemeContext';
 
@@ -56,7 +56,7 @@ export default function LoginScreen() {
   };
 
   return (
-    <SafeAreaView className={`flex-1 ${isDark ? 'bg-gray-900' : 'bg-white'}`}>
+    <SafeAreaView className={`flex-1 ${isDark ? 'bg-gray-900' : 'bg-white'} flex-grow`}>
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         className="flex-1"
@@ -80,7 +80,7 @@ export default function LoginScreen() {
 
             {/* Theme Toggle */}
             <View className="mb-8">
-              <ThemeToggle />
+              
             </View>
 
             {/* Form */}

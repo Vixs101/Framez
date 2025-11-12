@@ -1,3 +1,4 @@
+
 import {
     Inter_400Regular,
     Inter_500Medium,
@@ -31,6 +32,16 @@ function RootLayoutNav() {
   );
 }
 
+function App() {
+  return (
+    <ThemeProvider>
+      <AuthProvider>
+        <RootLayoutNav />
+      </AuthProvider>
+    </ThemeProvider>
+  );
+}
+
 export default function RootLayout() {
   const [fontsLoaded, setFontsLoaded] = useState(false);
 
@@ -60,11 +71,5 @@ export default function RootLayout() {
     );
   }
 
-  return (
-    <ThemeProvider>
-      <AuthProvider>
-        <RootLayoutNav />
-      </AuthProvider>
-    </ThemeProvider>
-  );
+  return <App />;
 }
